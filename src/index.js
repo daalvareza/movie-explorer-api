@@ -3,7 +3,8 @@ import cors from 'cors';
 import express from 'express';
 import sequelize from './user/config/db';
 import userRoutes from './user/routes/userRoutes';
-import authRoutes  from './authentication/routes/authRoutes';
+import authRoutes from './authentication/routes/authRoutes';
+import aiRoutes from './ai/routes/openAiRoutes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpecs from './swaggerConfig';
 
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/ai', aiRoutes);
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {

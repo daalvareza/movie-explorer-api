@@ -27,11 +27,16 @@ const swaggerOptions = {
                 name: 'Authentication',
                 description: 'Endpoints related to authentication and authorization',
             },
+            {
+                name: 'AI',
+                description: 'Endpoints related to AI integration',
+            },
         ],
     },
     apis: [
         './dist/user/routes/userRoutes.js',
-        './dist/authentication/routes/authRoutes.js'
+        './dist/authentication/routes/authRoutes.js',
+        './dist/ai/routes/openAiRoutes.js'
     ],
 };
 const swaggerSpecs = (0, swagger_jsdoc_1.default)(swaggerOptions);
