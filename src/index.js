@@ -7,6 +7,7 @@ import authRoutes from './authentication/routes/authRoutes';
 import aiRoutes from './ai/routes/openAiRoutes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpecs from './swaggerConfig';
+import './user/models/associations';
 
 config();
 
