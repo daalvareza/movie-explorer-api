@@ -12,6 +12,7 @@ const authRoutes_1 = __importDefault(require("./authentication/routes/authRoutes
 const openAiRoutes_1 = __importDefault(require("./ai/routes/openAiRoutes"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swaggerConfig_1 = __importDefault(require("./swaggerConfig"));
+require("./user/models/associations");
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;

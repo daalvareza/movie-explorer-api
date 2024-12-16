@@ -32,7 +32,7 @@ const swaggerOptions = {
     apis: [
         './dist/user/routes/userRoutes.js',
         './dist/authentication/routes/authRoutes.js',
-        './dist/ai/routes/openAiRoutes.js'
+        './dist/ai/routes/openAiRoutes.js',
     ],
 };
 

@@ -112,6 +112,10 @@ class UserRepository {
                 where: { imdbID: movieId }
             });
 
+            if (!favoriteMovie) {
+                throw new Error(`Movie with imdbID ${movieId} doesn't exist`);
+            }
+
             const isOnlyOneUserWithThisMovie = await UserFavMovieAssoc.count({
                 where: { fav_movies_id: favoriteMovie.id },
             }) <= 1;

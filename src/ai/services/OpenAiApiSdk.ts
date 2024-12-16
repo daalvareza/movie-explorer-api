@@ -25,6 +25,33 @@ class OpenAiApiSdk extends OpenAiApiBase {
     const response = await this.sendRequest(prompt, format);
     return response;
   }
+
+  public async getMovieSentiment(movieNotes: string[]): Promise<MovieRecommendationsSchema> {
+    const formattedReviews = movieNotes.map(note => `- ${note}`).join('\n');  
+    const prompt = `
+      A movie has the following reviews:\n
+      ${formattedReviews}\n
+      You need to determine the overall sentiment of these reviews. Follow these rules:
+      - Begin your response with the number of reviews.
+      - Summarize the overall sentiment of these reviews in at most 3 words (e.g., "very positive", "generally mixed", "mostly negative").
+      - Highlight the most common subjects or themes mentioned by the reviewers, whether they are positive or negative.
+  
+      Format your final answer as:
+      "Of X review(s), the overall sentiment is Y. Most users highlight Z."
+  
+      Where:
+      - X is the number of reviews provided.
+      - Y is the 3-word (or fewer) sentiment summary.
+      - Z is the most commonly mentioned subjects/themes.
+    `;
+  
+    const format = z.object({
+      sentiment: z.string(),
+    });
+  
+    const response = await this.sendRequest(prompt, format);
+    return response;
+  }  
 }
 
 export default OpenAiApiSdk;
