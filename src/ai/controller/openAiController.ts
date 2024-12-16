@@ -33,7 +33,6 @@ class OpenAIController {
                 res.status(200).json({ data: 'This movie does not have notes related' });
                 return;
             }
-            console.log(movieNotes);
             const result = await sdk.getMovieSentiment(movieNotes);
             res.status(200).json({ data: result });
         } catch (error: any) {
