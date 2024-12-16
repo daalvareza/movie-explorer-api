@@ -11,8 +11,10 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "types": ["node"],
+    "types": ["node", "jest"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-  }
+    "typeRoots": ["node_modules/@types"],
+  },
+  "exclude": ["node_modules", "dist", "jest.config.ts"]
 }
